@@ -1,0 +1,434 @@
+/* ==UserStyle==
+@name         AnimeGo Dark Theme
+@namespace    animego.org, animego.me
+@author       royalblue
+@version      1.1.4
+@license      CC BY
+@preprocessor less
+@var select   rb-theme "Тема" [
+"Dark", "Ultrablack_Scarlet_Amoled", "ytc", "Neon_city", "Cyber_Neon", "Coffee_Harmony",
+"Citric_acid", "Electric_Sunset", "Cosmic_Lime", "Fire_Ice", "Blue_Screen_of_Death",
+"Radiation_Dawn", "Deep_Crimson_Void", "Void_Amethyst", "Abyss_Teal_Storm", "Midnight_Ocean",
+"Copper_Ore", "Cyberpunk_Glitch", "Toxic_Wasteland", "Solar_Flare"
+]
+==/UserStyle== */
+
+@-moz-document regexp("https?://(?:[^./?%]+\\.)?animego\\.[a-zA-Z]{2,}(?:/.*)?") {
+  html[data-bs-theme="dark"] {
+    --rb-head: #000; /* шапка */
+    --rb-background: #121212; /* фон */
+    --rb-subhead: #1d1d1d; /* шапка карточек */
+    --rb-card: #212121;
+    --rb-text: #fff;
+    --rb-text-sub: rgba(222, 226, 230, .5);
+    --rb-accent: 255, 92, 87;
+    --rb-accent-hover: 255, 19, 10;
+    --rb-accent-hover-alpha: #ff130a4d;
+    --bs-body-bg: var(--rb-background) !important; /* фон */
+    --bs-content-color: var(--rb-card) !important; /* каточки + фон плеера */
+    --bs-body-color: var(--rb-text) !important; /* цвет текста только body */
+    --bs-tertiary-color: var(--rb-text-sub) !important;
+    --bs-secondary-color: rgba(226, 222, 230, 0.76) !important; /* подгаловок */
+    --bs-btn-color: #000 !important; /* текст кнопки возможно + hover */
+    --bs-link-color-rgb: var(--rb-accent) !important; /* ссылки */
+    --bs-link-hover-color-rgb: var(--rb-accent-hover) !important;
+  }
+  
+  html[data-bs-theme="dark"] .aw-day-title { /* кнопки "расписание */
+    background-color: hsla(0,0%,100%, 0.02) !important;
+    color: #fff !important;
+    &.active { background-color: var(--rb-subhead) !important; }
+    &:hover { background-color: var(--rb-accent-hover-alpha) !important; }
+  }
+  
+  /* объекты внутри карточек */
+  html[data-bs-theme="dark"] .aw-item { /* обновления аниме */
+    background-color: hsla(0,0%,100%, 0.02) !important;
+    &:hover { background-color: var(--rb-accent-hover-alpha) !important; }
+  }
+
+  html[data-bs-theme="dark"] .carousel-section .scroll-btn { /* боковая кнопка */
+    background-color: var(--rb-subhead) !important;
+  }
+  
+  html[data-bs-theme="dark"] :is(header, #bottomNav) { --bs-navbar-bg: var(--rb-head) !important; }
+  html[data-bs-theme="dark"] .bn-item { color: color-mix(in oklch, rgb(var(--rb-accent)), #000 20%) !important; }
+  html[data-bs-theme="dark"] .nav-link { --bs-nav-link-color: color-mix(in oklch, rgb(var(--rb-accent)), #000 20%) !important; }
+  html[data-bs-theme="dark"] .icon-burger:not(:hover) { --bs-burger-color: color-mix(in oklch, rgb(var(--rb-accent)), #000 20%) !important; }
+  html[data-bs-theme="dark"] header .offcanvas { background: var(--rb-head) !important; }
+  html[data-bs-theme="dark"] .bg-body-secondary { background: var(--rb-background) !important; }
+  html[data-bs-theme="dark"] .theme-btn {
+    color: color-mix(in oklch, rgb(var(--rb-accent)), #000 20%) !important;
+    &.active {
+      background: var(--rb-card) !important;
+      svg { color: rgb(var(--rb-accent-hover)) !important; }
+    }
+  }
+  
+  html[data-bs-theme="dark"] .form-check-input:checked { /* чекбоксы */
+    background-color: rgb(var(--rb-accent)) !important; 
+    border-color: rgb(var(--rb-accent)) !important;
+    box-shadow: 0 0 0 .25rem rgba(var(--rb-accent), 0.25) !important;
+  }
+  html[data-bs-theme="dark"] .sorter {
+    .btn-link {
+      color: rgb(var(--rb-accent)) !important;
+      &:hover { color: rgb(var(--rb-accent-hover)) !important; } /* текст кнопки "сначала сортировать */
+    }
+    .view-item {
+      &.active, &:hover { color: rgb(var(--rb-accent-hover)) !important; } /* кнопки сортировки */
+    }
+  }
+ 
+  html[data-bs-theme="dark"] .form-control { /* форма в поиске аниме */
+    background-color: var(--rb-subhead) !important;
+    &:focus:not(.search-form *) {
+      border-color: rgb(var(--rb-accent)) !important;
+      box-shadow: 0 0 0 .25rem rgba(var(--rb-accent), 0.25) !important;
+    }
+  }
+
+  html[data-bs-theme="dark"] .input-group-icon { background-color: var(--rb-subhead) !important; } /* иконка поиска */
+  
+  html[data-bs-theme="dark"] .btn-primary { /* кнопка смотреть */
+    --bs-btn-bg: rgb(var(--rb-accent)) !important;
+    --bs-btn-border-color: rgb(var(--rb-accent)) !important;
+    --bs-btn-hover-bg: rgb(var(--rb-accent-hover)) !important;
+    --bs-btn-hover-border-color: rgb(var(--rb-accent-hover)) !important;
+    --bs-btn-active-bg: rgb(var(--rb-accent)) !important;
+    --bs-btn-active-border-color: rgb(var(--rb-accent)) !important;
+  }
+  
+  html[data-bs-theme="dark"] .btn-link {
+    --bs-btn-color: rgb(var(--rb-accent)) !important; /* ответы на коммент */
+    --bs-btn-hover-color: rgb(var(--rb-accent-hover)) !important;
+    --bs-btn-active-color: rgb(var(--rb-accent-hover)) !important;
+  }
+  
+  html[data-bs-theme="dark"] .btn { --bs-btn-disabled-bg: rgb(var(--rb-accent)) !important; }
+  
+  html[data-bs-theme="dark"] .entity-rating__user.open { background-color: rgb(var(--rb-accent)) !important; } /* кнопка оценки аниме */
+  html[data-bs-theme="dark"] #collapseMylist .bg-body { background-color: var(--rb-background) !important; } /* добавить в список */
+  html[data-bs-theme="dark"] .seasons__link:hover { color: rgb(var(--rb-accent-hover)) !important; } /* связанные аниме hover */
+
+  html[data-bs-theme="dark"] #player {
+    &, .card { background-color: var(--rb-background) !important; }
+    .list-group .list-group-item { /* выбор озвучки\плеера */
+      background: transparent !important;
+      &.active { --bs-list-group-active-color: rgb(var(--rb-accent)) !important; }
+      
+    }
+    .nav-tabs .nav-link {
+      --bs-nav-link-color: rgb(var(--rb-accent)) !important;
+      &.active { border-bottom-color: rgb(var(--rb-accent)) !important; } /* навигация бордер */
+      &:hover, &:focus { --bs-nav-link-hover-color: rgb(var(--rb-accent-hover)) !important; }
+    }
+  }
+  
+  html[data-bs-theme="dark"] .player-video-bar__number { background: var(--rb-subhead) !important; }
+  html[data-bs-theme="dark"] .player-video-bar__item.active .player-video-bar__number {
+    background: var(--rb-card) !important;
+    color: rgb(var(--rb-accent)) !important;
+  }
+  
+  @media (max-width: 991.98px) { html[data-bs-theme="dark"] .offcanvas-lg { background: var(--rb-head) !important; } } /* бокове меню выбора озвучки */
+  
+
+  html[data-bs-theme="dark"] .bg-dark { background-color: var(--rb-subhead) !important; } /* подшапка карточек, напрмер в график выхода серий под плеером */
+
+  html[data-bs-theme="dark"] #comments .form-control:focus { /* текст арена комментов */
+    border-color: rgb(var(--rb-accent)) !important;
+    box-shadow: 0 0 0 .25rem rgba(var(--rb-accent), 0.25) !important;
+  }
+
+  html[data-bs-theme="dark"] .user-profile-cover__img, /* фон шапки пользователя */
+  html[data-bs-theme="dark"] .list-horizontal__arrow /* боковая кнопка */ {
+    background-color: var(--rb-subhead) !important;
+  }
+  
+  /* футер */
+  html[data-bs-theme="dark"] .scroll-up { --bs-scroll-up-bg: var(--rb-card) !important; } /* кнопка наверх */
+  html[data-bs-theme="dark"] footer { background-color: var(--rb-head) !important; }
+  html[data-bs-theme="dark"] .link-primary {
+    --bs-primary-rgb: var(--rb-accent) !important;
+    &:hover, &:focus { color: rgb(var(--rb-accent-hover)) !important; }
+  }
+  
+  html[data-bs-theme="dark"] a.text-primary { /* для правообладателей ссылка */
+    color: rgb(var(--rb-accent)) !important;
+    &:hover { color: rgb(var(--rb-accent-hover)) !important; }
+  }
+  html[data-bs-theme="dark"] a[href="mailto:info@animego.me"] {
+    color: rgb(var(--rb-accent)) !important;
+    &:hover {  color: rgb(var(--rb-accent-hover)) !important; }
+  }
+
+  /* Ultrablack Scarlet Amoled */
+  & when (@rb-theme = Ultrablack_Scarlet_Amoled) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #000000;
+      --rb-background: #080808;
+      --rb-subhead: #101010;
+      --rb-card: #181818;
+      --rb-text: #fff;
+      --rb-text-sub: rgba(255, 255, 255, 0.6);
+      --rb-accent: 255, 30, 30;
+      --rb-accent-hover: 212, 24, 24;
+      --rb-accent-hover-alpha: #d418184d;
+      --rb-icon-primary: rgb(255, 30, 30);
+    }
+  }
+  & when (@rb-theme = ytc) {
+    html[data-bs-theme="dark"] {
+      --rb-head: rgb(9, 10, 15);
+      --rb-background: #161925;
+      --rb-subhead: rgb(15, 18, 27);
+      --rb-card: rgb(18, 21, 32);
+      --rb-text: #fff;
+      --rb-text-sub: rgba(222, 226, 230, 0.5);
+      --rb-accent: 197, 14, 210;
+      --rb-accent-hover: 124, 183, 255;
+      --rb-accent-hover-alpha: #7CB7FF4d;
+      --rb-icon-primary: rgb(197, 14, 210);
+    }
+  }
+  /* Неоновый город */
+  & when (@rb-theme = Neon_city) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #000;
+      --rb-background: #0f0f1a;
+      --rb-subhead: #1a1a2e;
+      --rb-card: #16213e;
+      --rb-text: #e0e0ff;
+      --rb-text-sub: rgba(200, 200, 255, .6);
+      --rb-accent: 0, 255, 157;
+      --rb-accent-hover: 0, 255, 0;
+      --rb-accent-hover-alpha: #00ff004d;
+      --rb-icon-primary: rgb(0, 255, 157);
+    }
+  }
+  /* Cyber Neon */
+  & when (@rb-theme = Cyber_Neon) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #0d0d0d;
+      --rb-background: #0a0a0f;
+      --rb-subhead: #101018;
+      --rb-card: #151525;
+      --rb-text: #00ffff;
+      --rb-text-sub: rgba(0, 221, 255, .7);
+      --rb-accent: 0, 234, 255;
+      --rb-accent-hover: 0, 188, 212;
+      --rb-accent-hover-alpha: #00bcd44d;
+    }
+  }
+  /* Кофейная Гармония */
+  & when (@rb-theme = Coffee_Harmony) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #1a120b;
+      --rb-background: #2d241f;
+      --rb-subhead: #3d332e;
+      --rb-card: #4a403c;
+      --rb-text: #f5e6d3;
+      --rb-text-sub: rgba(245, 230, 211, .7);
+      --rb-accent: 255, 140, 66;
+      --rb-accent-hover: 255, 94, 0;
+      --rb-accent-hover-alpha: #ff5e004d;
+    }
+  }
+  /* Я знаю про белый цвет на жёлтом. Я хотел изменить, но я прозрел. Моё мировоззрение вышло за пределы понимания человечества. Я просто гений я так вижу. Да мне лень... */
+  & when (@rb-theme = Citric_acid) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #000000;
+      --rb-background: #121212;
+      --rb-subhead: #1d1d1d;
+      --rb-card: #292900;
+      --rb-text: #fff;
+      --rb-text-sub: rgba(255, 255, 255, 0.7);
+      --rb-accent: 255, 255, 0;
+      --rb-accent-hover: 255, 204, 0;
+      --rb-accent-hover-alpha: #ffcc004d;
+    }
+  }
+  /* Электрический закат */
+  & when (@rb-theme = Electric_Sunset) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #000000;
+      --rb-background: #100e17;
+      --rb-subhead: #1e122f;
+      --rb-card: #2a1b3d;
+      --rb-text: #fff;
+      --rb-text-sub: rgba(255, 255, 255, .6);
+      --rb-accent: 255, 0, 255;
+      --rb-accent-hover: 255, 51, 255;
+      --rb-accent-hover-alpha: #ff33ff4d;
+    }
+  }
+  /* Космический лайм */
+  & when (@rb-theme = Cosmic_Lime) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #050505;
+      --rb-background: #0a1a0a;
+      --rb-subhead: #122a12;
+      --rb-card: #1a3a1a;
+      --rb-text: #e0ffe0;
+      --rb-text-sub: rgba(224, 255, 224, .7);
+      --rb-accent: 0, 255, 0;
+      --rb-accent-hover: 0, 204, 0;
+      --rb-accent-hover-alpha: #00cc004d;
+    }
+  }
+  /* Огненный лёд */
+  & when (@rb-theme = Fire_Ice) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #000000;
+      --rb-background: #0a0a1a;
+      --rb-subhead: #1a1a2a;
+      --rb-card: #2a2a3a;
+      --rb-text: #fff;
+      --rb-text-sub: rgba(255, 255, 255, .6);
+      --rb-accent: 255, 0, 0;
+      --rb-accent-hover: 255, 51, 51;
+      --rb-accent-hover-alpha: #ff33334d;
+    }
+  }
+  /* Синий экран смерти */
+  & when (@rb-theme = Blue_Screen_of_Death) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #000011;
+      --rb-background: #000022;
+      --rb-subhead: #000033;
+      --rb-card: #001144;
+      --rb-text: #00ffff;
+      --rb-text-sub: rgba(0, 255, 255, .7);
+      --rb-accent: 0, 255, 255;
+      --rb-accent-hover: 0, 221, 255;
+      --rb-accent-hover-alpha: #00ddff4d;
+    }
+  }
+  /* Радиационный рассвет */
+  & when (@rb-theme = Radiation_Dawn) { 
+    html[data-bs-theme="dark"] {
+      --rb-head: #000000;
+      --rb-background: #1a1200;
+      --rb-subhead: #2a2200;
+      --rb-card: #3a3200;
+      --rb-text: #fff;
+      --rb-text-sub: rgba(255, 255, 255, .7);
+      --rb-accent: 255, 153, 0;
+      --rb-accent-hover: 255, 119, 0;
+      --rb-accent-hover-alpha: #ff77004d;
+    }
+  }
+  /* Deep Crimson Void */
+  & when (@rb-theme = Deep_Crimson_Void) { 
+    html[data-bs-theme="dark"] {
+      --rb-head: #050505;
+      --rb-background: #0e0e0e;
+      --rb-subhead: #181818;
+      --rb-card: #202020;
+      --rb-text: #fff;
+      --rb-text-sub: rgba(255, 255, 255, .7);
+      --rb-accent: 199, 0, 57;
+      --rb-accent-hover: 166, 0, 49;
+      --rb-accent-hover-alpha: #a600314d;
+    }
+  }
+  /* Void Amethyst */
+  & when (@rb-theme = Void_Amethyst) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #08050a;
+      --rb-background: #0f0b12;
+      --rb-subhead: #180f1f;
+      --rb-card: #22162a;
+      --rb-text: #e0d0ff;
+      --rb-text-sub: rgba(224, 208, 255, .7);
+      --rb-accent: 168, 85, 247;
+      --rb-accent-hover: 136, 53, 216;
+      --rb-accent-hover-alpha: #8835d84d;
+    }
+  }
+  /* Abyss Teal Storm */
+  & when (@rb-theme = Abyss_Teal_Storm) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #020404;
+      --rb-background: #071010;
+      --rb-subhead: #0c1a1a;
+      --rb-card: #122525;
+      --rb-text: #a0ffff;
+      --rb-text-sub: rgba(160, 255, 255, .7);
+      --rb-accent: 0, 229, 192;
+      --rb-accent-hover: 0, 191, 160;
+      --rb-accent-hover-alpha: #00bfa04d;
+    }
+  }
+/*   Midnight Ocean (Полночный океан) */
+  & when (@rb-theme = Midnight_Ocean) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #000408;
+      --rb-background: #010a13;
+      --rb-subhead: #031625;
+      --rb-card: #0a2a3a;
+      --rb-text: #d0e8ff;
+      --rb-text-sub: rgba(208, 232, 255, 0.6);
+      --rb-accent: 0, 191, 255;
+      --rb-accent-hover: 0, 153, 204;
+      --rb-accent-hover-alpha: #0099cc4d;
+    }
+  }
+  /* copper ore */
+  & when (@rb-theme = Copper_Ore) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #1a120b;
+      --rb-background: #3d2a19;
+      --rb-subhead: #5a3d28;
+      --rb-card: #7a5a3a;
+      --rb-text: #fff8dc;
+      --rb-text-sub: rgba(255, 248, 220, 0.7);
+      --rb-accent: 255, 215, 0;
+      --rb-accent-hover: 255, 185, 0;
+      --rb-accent-hover-alpha: #ffb9004d;
+    }
+  }
+  /* Cyberpunk Glitch (Киберпанк-сбой) */
+  & when (@rb-theme = Cyberpunk_Glitch) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #000000;
+      --rb-background: #0a0012;
+      --rb-subhead: #1a002a;
+      --rb-card: #2a0042;
+      --rb-text: #00ffff;
+      --rb-text-sub: rgba(0, 255, 255, 0.6);
+      --rb-accent: 255, 0, 255;
+      --rb-accent-hover: 204, 0, 204;
+      --rb-accent-hover-alpha: #cc00cc4d;
+    }
+  }
+  /* Toxic Wasteland (Токсичный зелёный) */
+  & when (@rb-theme = Toxic_Wasteland) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #001000;
+      --rb-background: #0a1200;
+      --rb-subhead: #1a2a00;
+      --rb-card: #2a4200;
+      --rb-text: #00ff00;
+      --rb-text-sub: rgba(0, 255, 0, 0.7);
+      --rb-accent: 255, 50, 0;
+      --rb-accent-hover: 230, 45, 0;
+      --rb-accent-hover-alpha: #ff32004d;
+    }
+  }
+/* Solar Flare (Оранжево-чёрный) */
+  & when (@rb-theme = Solar_Flare) {
+    html[data-bs-theme="dark"] {
+      --rb-head: #0c0c0c;
+      --rb-background: #120a00;
+      --rb-subhead: #2a1a00;
+      --rb-card: #422a00;
+      --rb-text: #ffaa00;
+      --rb-text-sub: rgba(255, 170, 0, 0.7);
+      --rb-accent: 255, 40, 40;
+      --rb-accent-hover: 230, 36, 36;
+      --rb-accent-hover-alpha: #ff28284d;
+    }
+  }
+}
