@@ -2,11 +2,14 @@
 @name         AnimeGo Dark Theme
 @namespace    animego.org, animego.me
 @author       royalblue
-@version      1.1.4
+@version      1.1.5
 @license      CC BY
+@homepageURL https://userstyles.world/style/19495
+@supportURL https://t.me/glass_of_rain_water
+@updateURL https://userstyles.world/api/style/19495.user.css
 @preprocessor less
 @var select   rb-theme "Тема" [
-"Dark", "Ultrablack_Scarlet_Amoled", "ytc", "Neon_city", "Cyber_Neon", "Coffee_Harmony",
+"Dark", "Ultrablack_Scarlet", "ytc", "Neon_city", "Cyber_Neon", "Coffee_Harmony",
 "Citric_acid", "Electric_Sunset", "Cosmic_Lime", "Fire_Ice", "Blue_Screen_of_Death",
 "Radiation_Dawn", "Deep_Crimson_Void", "Void_Amethyst", "Abyss_Teal_Storm", "Midnight_Ocean",
 "Copper_Ore", "Cyberpunk_Glitch", "Toxic_Wasteland", "Solar_Flare"
@@ -31,6 +34,7 @@
     --bs-secondary-color: rgba(226, 222, 230, 0.76) !important; /* подгаловок */
     --bs-btn-color: #000 !important; /* текст кнопки возможно + hover */
     --bs-link-color-rgb: var(--rb-accent) !important; /* ссылки */
+    --bs-link-color: var(--rb-accent) !important; /* ссылки */
     --bs-link-hover-color-rgb: var(--rb-accent-hover) !important;
   }
   
@@ -105,7 +109,21 @@
     --bs-btn-active-color: rgb(var(--rb-accent-hover)) !important;
   }
   
-  html[data-bs-theme="dark"] .btn { --bs-btn-disabled-bg: rgb(var(--rb-accent)) !important; }
+  html[data-bs-theme="dark"] .btn {
+    --bs-btn-disabled-bg: rgb(var(--rb-accent)) !important;
+    &.btn-alert-primary {
+      &.active, &:hover {
+        background-color: var(--rb-accent-hover-alpha) !important;
+        border-color: rgb(var(--rb-accent)) !important;
+        color: rgb(var(--rb-accent)) !important;
+      }
+    }
+  }
+
+  html[data-bs-theme="dark"] .text-bg-secondary {
+    background-color: var(--rb-subhead) !important;
+    color: var(--rb-white) !important;
+  }
   
   html[data-bs-theme="dark"] .entity-rating__user.open { background-color: rgb(var(--rb-accent)) !important; } /* кнопка оценки аниме */
   html[data-bs-theme="dark"] #collapseMylist .bg-body { background-color: var(--rb-background) !important; } /* добавить в список */
@@ -148,7 +166,12 @@
   
   /* футер */
   html[data-bs-theme="dark"] .scroll-up { --bs-scroll-up-bg: var(--rb-card) !important; } /* кнопка наверх */
-  html[data-bs-theme="dark"] footer { background-color: var(--rb-head) !important; }
+  html[data-bs-theme="dark"] footer {
+    background-color: var(--rb-head) !important;
+    .text-body-secondary,
+    .nav-link:not(:hover) { color: var(--rb-text-sub) !important; }
+    span:nth-last-child(-n+3) { color: var(--rb-text) !important; }
+  }
   html[data-bs-theme="dark"] .link-primary {
     --bs-primary-rgb: var(--rb-accent) !important;
     &:hover, &:focus { color: rgb(var(--rb-accent-hover)) !important; }
@@ -163,8 +186,8 @@
     &:hover {  color: rgb(var(--rb-accent-hover)) !important; }
   }
 
-  /* Ultrablack Scarlet Amoled */
-  & when (@rb-theme = Ultrablack_Scarlet_Amoled) {
+  /* Ultrablack Scarlet */
+  & when (@rb-theme = Ultrablack_Scarlet) {
     html[data-bs-theme="dark"] {
       --rb-head: #000000;
       --rb-background: #080808;
